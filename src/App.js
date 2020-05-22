@@ -46,7 +46,7 @@ updateShelf = (book, shelf) => {
            <HomePage books = {this.state.books} updateShelf = {this.updateShelf} />
          )} />
          <Route exact path = '/search' render = { () => (
-           <Search />
+           <Search books = {this.state.books} updateShelf = {this.updateShelf} />
          )} />
       </div>
       );

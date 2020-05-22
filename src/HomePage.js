@@ -10,23 +10,28 @@ class HomePage extends Component {
    }
    render() {
        return (
+        
         <div className="list-books">
-           <Header />
-           <BooksSection 
-               sectionTitle = 'Currently Reading' 
-               shelf = 'currentlyReading'
-               books = {this.props.books} 
-               shelfUpdate = {this.shelfUpdate} />
-           <BooksSection 
-               sectionTitle = 'Want to Read' 
-               shelf = 'wantToRead'
-               books = {this.props.books} 
-               shelfUpdate = {this.shelfUpdate} />
-           <BooksSection 
-               sectionTitle = 'Read' 
-               shelf = 'read'
-               books = {this.props.books} 
-               shelfUpdate = {this.shelfUpdate} />
+            <Header />
+            <div className="list-books-content">
+              <div>
+                <BooksSection 
+                    sectionTitle = 'Currently Reading' 
+                    shelf = 'currentlyReading'
+                    books = {this.props.books} 
+                    shelfUpdate = {this.shelfUpdate} />
+                <BooksSection 
+                    sectionTitle = 'Want to Read' 
+                    shelf = 'wantToRead'
+                    books = {this.props.books} 
+                    shelfUpdate = {this.shelfUpdate} />
+                <BooksSection 
+                    sectionTitle = 'Read' 
+                    shelf = 'read'
+                    books = {this.props.books} 
+                    shelfUpdate = {this.shelfUpdate} />
+              </div>
+            </div>
            <SearchButton />
         </div>
        )
@@ -35,5 +40,6 @@ class HomePage extends Component {
 
 HomePage.propTypes = {
    books : PropTypes.array,
+   updateShelf : PropTypes.func.isRequired,
 }
 export default HomePage;

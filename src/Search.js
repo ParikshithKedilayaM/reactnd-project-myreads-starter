@@ -1,24 +1,35 @@
 import React , { Component } from 'react'
-import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
+import SearchBar from './SearchBar'
+import SearchResults from './SearchResults'
 
 class Search extends Component {
-    
+    state = {
+      query : '',
+    }
+
+    changeQuery = (event) => {
+      this.setState({
+        query : event.target.value,
+      });
+    }
+
+    updateShelf = (book, shelf) => {
+      this.props.updateShelf(book, shelf);
+    }
+
     render() {
       return (
         <div className="search-books">
-        <div className="search-books-bar">
-          <Link to = '/' className="close-search">Close</Link>
-          <div className="search-books-input-wrapper">
-            <input type="text" placeholder="Search by title or author"/>
-          </div>
+          <SearchBar query={this.state.query} changeQuery={this.changeQuery} />
+          <SearchResults query={this.state.query} shelfUpdate={this.updateShelf} />
         </div>
-        <div className="search-books-results">
-          <ol className="books-grid">
-              
-          </ol>
-        </div>
-      </div>
       )
     }
+}
+
+Search.propTypes = {
+  books : PropTypes.array,
+  updateShelf : PropTypes.func.isRequired,
 }
 export default Search;
