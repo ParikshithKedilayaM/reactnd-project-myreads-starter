@@ -3,7 +3,7 @@ import React from 'react'
 function Header () {
     return (
         <div className="list-books-title">
-            <h1>MyReads</h1>
+            <h1>My Books Library</h1>
         </div>
     )
 }
