@@ -9,9 +9,18 @@ class HomePage extends Component {
        return (
         <div className="list-books">
            <Header />
-           <BooksSection sectionTitle = 'Currently Reading' books = {this.props.books} />
-           <BooksSection sectionTitle = 'Want to Read' books = {this.props.books} />
-           <BooksSection sectionTitle = 'Read' books = {this.props.books} />
+           <BooksSection 
+               sectionTitle = 'Currently Reading' 
+               section = 'currentlyReading'
+               books = {this.props.books} />
+           <BooksSection 
+               sectionTitle = 'Want to Read' 
+               section = 'wantToRead'
+               books = {this.props.books} />
+           <BooksSection 
+               sectionTitle = 'Read' 
+               section = 'read'
+               books = {this.props.books} />
            <SearchButton />
         </div>
        )

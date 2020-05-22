@@ -15,6 +15,7 @@ export class BooksSection extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                       {this.props.books.map(book => (
+                        book.shelf === this.props.section &&
                         <Book key={book.id} book={book} changeShelf={this.shelfChange}/>
                       ))}
                     </ol>
@@ -27,6 +28,7 @@ export class BooksSection extends Component {
 }
 BooksSection.propTypes = {
     sectionTitle : PropTypes.string.isRequired,
+    section : PropTypes.string.isRequired,
     books : PropTypes.array,
 }
 export default BooksSection
