@@ -15,7 +15,7 @@ class BooksApp extends React.Component {
   componentDidMount() {
     BooksAPI.getAll().then((allbooks) => {
       this.setState({
-        books : allbooks.map(book=> [book.title, book.authors, book.shelf, book.imageLinks.thumbnail]),
+        books : allbooks
       });
     });
   };
@@ -25,7 +25,7 @@ class BooksApp extends React.Component {
     return (
       <div className = "app">
          <Route exact path = '/' render = { () => (
-           <HomePage />
+           <HomePage books = {this.state.books} />
          )} />
          <Route exact path = '/search' render = { () => (
            <Search />
