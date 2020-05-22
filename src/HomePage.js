@@ -5,22 +5,28 @@ import SearchButton from './SearchButton'
 import PropTypes from 'prop-types'
 
 class HomePage extends Component {
+   shelfUpdate = (book, shelf) => {
+       this.props.updateShelf(book, shelf);
+   }
    render() {
        return (
         <div className="list-books">
            <Header />
            <BooksSection 
                sectionTitle = 'Currently Reading' 
-               section = 'currentlyReading'
-               books = {this.props.books} />
+               shelf = 'currentlyReading'
+               books = {this.props.books} 
+               shelfUpdate = {this.shelfUpdate} />
            <BooksSection 
                sectionTitle = 'Want to Read' 
-               section = 'wantToRead'
-               books = {this.props.books} />
+               shelf = 'wantToRead'
+               books = {this.props.books} 
+               shelfUpdate = {this.shelfUpdate} />
            <BooksSection 
                sectionTitle = 'Read' 
-               section = 'read'
-               books = {this.props.books} />
+               shelf = 'read'
+               books = {this.props.books} 
+               shelfUpdate = {this.shelfUpdate} />
            <SearchButton />
         </div>
        )

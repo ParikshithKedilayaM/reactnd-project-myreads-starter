@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 class Book extends Component {
     changeShelf = (event) => {
-        this.props.changeShelf(event.target.value);
+        this.props.changeShelf(this.props.book, event.target.value);
     };
     render() {
         return (
@@ -15,7 +15,7 @@ class Book extends Component {
                             backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}>
                         </div>
                         <div className="book-shelf-changer">
-                            <select onChange={this.changeShelf}>
+                            <select onChange={this.changeShelf} value = {this.props.book.shelf}>
                                 <option value="move" disabled>Move to...</option>
                                 <option value="currentlyReading">Currently Reading</option>
                                 <option value="wantToRead">Want to Read</option>

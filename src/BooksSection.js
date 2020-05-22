@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import Book from './Book'
 
 export class BooksSection extends Component {
-  shelfChange = () => {
-
+  shelfChange = (book, shelf) => {
+     this.props.shelfUpdate(book, shelf);
   }
     render() {
         return (
@@ -15,7 +15,7 @@ export class BooksSection extends Component {
                   <div className="bookshelf-books">
                     <ol className="books-grid">
                       {this.props.books.map(book => (
-                        book.shelf === this.props.section &&
+                        book.shelf === this.props.shelf &&
                         <Book key={book.id} book={book} changeShelf={this.shelfChange}/>
                       ))}
                     </ol>
@@ -28,7 +28,7 @@ export class BooksSection extends Component {
 }
 BooksSection.propTypes = {
     sectionTitle : PropTypes.string.isRequired,
-    section : PropTypes.string.isRequired,
+    shelf : PropTypes.string.isRequired,
     books : PropTypes.array,
 }
 export default BooksSection
