@@ -22,7 +22,7 @@ class Search extends Component {
       return (
         <div className="search-books">
           <SearchBar query={this.state.query} changeQuery={this.changeQuery} />
-          <SearchResults query={this.state.query} shelfUpdate={this.updateShelf} />
+          <SearchResults query={this.state.query} books={this.props.books} shelfUpdate={this.updateShelf} />
         </div>
       )
     }

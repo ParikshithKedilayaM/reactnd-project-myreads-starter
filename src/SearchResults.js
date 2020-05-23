@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book'
+import PropTypes from 'prop-types'
 
 class SearchResults extends Component {
     state = {
@@ -32,7 +33,7 @@ class SearchResults extends Component {
                     {this.state.searchResults !== undefined 
                     && this.state.searchResults.length > 0 
                     && this.state.searchResults.map((book) => (
-                        <Book key={book.id} book={book} changeShelf={this.shelfChange}/>
+                        <Book key={book.id} books={this.props.books} book={book} changeShelf={this.shelfChange}/>
                     ))}
                 </ol>
             </div>
@@ -40,4 +41,9 @@ class SearchResults extends Component {
     }
 }
 
+SearchResults.propTypes = {
+    books : PropTypes.array,
+    query : PropTypes.string,
+    shelfUpdate : PropTypes.func.isRequired,
+}
 export default SearchResults;
