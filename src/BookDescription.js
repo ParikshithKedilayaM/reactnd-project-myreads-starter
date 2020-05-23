@@ -13,6 +13,6 @@ function BookDescription(props) {
     )
 }
 BookDescription.propTypes = {
-    book : PropTypes.array,
+    book : PropTypes.object,
 }
 export default BookDescription;

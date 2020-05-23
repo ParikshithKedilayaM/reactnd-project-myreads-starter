@@ -16,6 +16,6 @@ function BookCover(props) {
     )
 }
 BookCover.propTypes = {
-    book : PropTypes.array,
+    book : PropTypes.object,
 }
 export default BookCover;

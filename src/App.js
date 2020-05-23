@@ -19,15 +19,26 @@ class BooksApp extends React.Component {
       });
     });
   };
+  bookExists = (books, newBook) => {
+    const bookarr = books.filter( book => (
+       book.id === newBook.id
+    ))
+    return bookarr.length > 0 ? true : false;
+  }
   updateBooks=(prevState, book, shelf)=>{
     book.shelf = shelf;
-    const newList=  prevState.books.map(pbook=>{
-      if (pbook.id === book.id) {
-        return book;
-      } else {
-        return pbook;
-      }
-    })
+    let newList = [];
+    if (this.bookExists(prevState.books, book)) {
+      newList =  prevState.books.map(pbook=>{
+        if (pbook.id === book.id) {
+          return book;
+        } else {
+          return pbook;
+        }
+      })
+    } else {
+      newList = [...prevState.books, book];
+    }
     return newList
   }
 
