@@ -9,10 +9,12 @@ The user can move the books between the book shelves using the dropdown options 
 
 ## Deployment Steps
 
-To get started right away:
+To get started right away, clone this project to your computer and run the following commands:
 
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
+
+If you do not have npm installed on your computer, follow this link to install: [Install npm](https://www.npmjs.com/get-npm).
 
 
 ## Important
