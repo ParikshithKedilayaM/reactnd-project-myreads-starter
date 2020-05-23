@@ -10,7 +10,8 @@ function SearchBar (props) {
                 type="text" 
                 placeholder="Search by title or author"
                 value={props.query}
-                onChange={props.changeQuery}/>
+                onChange={props.changeQuery}
+                autoFocus/>
             </div>
         </div>
     )

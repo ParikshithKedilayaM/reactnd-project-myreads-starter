@@ -14,6 +14,10 @@ class SearchResults extends Component {
                     searchResults : results,
                 });
             });
+            this.props.query === '' 
+            && this.setState ({
+                searchResults : []
+            })
         }
     };
 
@@ -25,7 +29,9 @@ class SearchResults extends Component {
         return (
             <div className="search-books-results">
                 <ol className="books-grid">
-                    {this.state.searchResults.length > 0 && this.state.searchResults.map((book) => (
+                    {this.state.searchResults !== undefined 
+                    && this.state.searchResults.length > 0 
+                    && this.state.searchResults.map((book) => (
                         <Book key={book.id} book={book} changeShelf={this.shelfChange}/>
                     ))}
                 </ol>
